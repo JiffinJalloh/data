@@ -11,10 +11,15 @@
     "url": "git+https://github.com/JiffinJalloh/data.git"
   },
   "keywords": [],
-  "author": "Alhaji",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JiffinJalloh/data/issues"
   },
-  "homepage": "https://github.com/JiffinJalloh/data#readme"
+  "homepage": "https://github.com/JiffinJalloh/data#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "path": "^0.12.7",
+    "request": "^2.81.0"
+  }
 }
