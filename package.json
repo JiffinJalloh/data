@@ -1,7 +1,7 @@
 {
   "name": "repo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A package to access Dhis2 data",
   "main": "router.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/JiffinJalloh/data.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alhaji",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JiffinJalloh/data/issues"
