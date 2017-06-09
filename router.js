@@ -7,13 +7,13 @@ var path = require('path');
 
 app.use( express.static( __dirname + ""));
 
-router.get("/", function (request, response) {
+router.get("/", (request, response)=>{
    response.sendFile( path.join( __dirname, "", 'index.html' ));
 });
 
-router.get('/validation',function(req,response){
+router.get('/validation',(req,response)=>{
 var options = {
-	uri:"https://play.dhis2.org/demo/api/dataSets",
+	uri:"https://play.dhis2.org/demo/api/validationRules",
 	method: "GET",
 	json: true,
 	auth:{
@@ -23,14 +23,14 @@ var options = {
 	}
 };
 
-requestPromise(options, function(err, req, res){
+requestPromise(options, (err, req, res)=>{
 	response.json(res)});
 });
 
 
-router.get('/orgUnit',function(req,response){
+router.get('/orgUnit',(req,response)=>{
 var options = {
-	uri:"https://play.dhis2.org/demo/api/dataSets",
+	uri:"https://play.dhis2.org/demo/api/organisationUnits",
 	method: "GET",
 	json: true,
 	auth:{
@@ -40,14 +40,14 @@ var options = {
 	}
 };
 
-requestPromise(options, function(err, req, res){
+requestPromise(options, (err, req, res)=>{
 	response.json(res)});
 });
 
 
-router.get('/dataElements',function(req,response){
+router.get('/dataElements',(req,response)=>{
 var options = {
-	uri:"https://play.dhis2.org/demo/api/maps",
+	uri:"https://play.dhis2.org/demo/api/dataElements",
 	method: "GET",
 	json: true,
 	auth:{
@@ -57,13 +57,13 @@ var options = {
 	}
 };
 
-requestPromise(options, function(err, req, res){
+requestPromise(options, (err, req, res)=>{
 	response.json(res)});
 });
 
 app.use('/', router);
    
-app.listen(3000, function(){
+app.listen(3000, ()=>{
   console.log('start server at port 3000')});
 
 

@@ -1,117 +1,27 @@
 
 <html>
-	<head>
+	<head >
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	 <script  src="myscripts.js"></script> 
 
-	
-	<script type="text/javascript" >
-		function validationRules()
-		{
-			window.location.href= '/validation';
-		}
-		function displayOrgunit()
-		{
-			window.location.href= '/orgUnit';
-		}
-		function displayDataElement()
-		{
-			 window.location.href= '/dataElements'; 
-		}
-	</script>
-    <script type="text/javascript">
-			
-			function sendRequestValidation()
-			{
-				var xhr =  new XMLHttpRequest();
-				if(xhr)
-				{
-					xhr.open("GET","http://localhost:3000/validation",true, 'admin', 'district');
-					xhr.withCredentials = true;
-					xhr.setRequestHeader( "Content-type", "application/json" );	
-					xhr.onreadystatechange = function()
-					{
-						if(xhr.readyState ==4 && xhr.status == 200)
-						{
-							var obj = JSON.parse(xhr.responseText);
-							var responseData =  JSON.stringify(obj, undefined, 2);
-							
-							var container = document.getElementById("responseOutput")
-							 container.innerHTML = responseData;
-							 
-						}
-					}
-					xhr.send(null);
-				    
-				}
-			}
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	function sendRequestOrgUnits()
-			{
-				var xhr =  new XMLHttpRequest();
-				if(xhr)
-				{
-					xhr.open("GET","http://localhost:3000/orgUnit",true, 'admin', 'district');
-					xhr.withCredentials = true;
-					xhr.setRequestHeader( "Content-type", "application/json" );	
-					xhr.onreadystatechange = function()
-					{
-						if(xhr.readyState ==4 && xhr.status == 200)
-						{
-								var obj = JSON.parse(xhr.responseText);
-							var responseData =  JSON.stringify(obj, undefined, 2);
-							
-							var container = document.getElementById("responseOutput")
-							 container.innerHTML = responseData;
-							 
-						}
-					}
-					xhr.send(null);
-				    
-				}
-			}
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	function sendRequestDataElements()
-			{
-				var xhr =  new XMLHttpRequest();
-				if(xhr)
-				{
-					xhr.open("GET","http://localhost:3000/dataElements",true, 'admin', 'district');
-					xhr.withCredentials = true;
-					xhr.setRequestHeader( "Content-type", "application/json" );	
-					xhr.onreadystatechange = function()
-					{
-						// while(xhr.readyState == 3)
-						// {
-							
-						// 	var container = document.getElementById("responseOutput")
-						// 	 container.innerHTML = 'Loading...';
-							
-						// }
-
-						if(xhr.readyState ==4 && xhr.status == 200)
-						{
-								var obj = JSON.parse(xhr.responseText);
-							var responseData =  JSON.stringify(obj, undefined, 2);
-							
-							var container = document.getElementById("responseOutput")
-							 container.innerHTML = responseData;
-							 
-						}
-					}
-					xhr.send(null);
-				    
-				}
-			}
-
-	</script>
+	<!-- <head onload="window.location.reload()"> -->
 
 	</head>
-		<body>
-		<div id="main"> </div>
-		 <h3>Display data </h3>
-		<button type="text"  onclick="sendRequestValidation()" > Display Validation rules</button>
+		<body >
+		<!-- <div id="main" class="hide">  -->
+		<div id="main" class="hide"> 
+		<h3>Display data </h3>
+		<!-- <button type="text" id="sendVal" onclick="Test()" > Display Validation rules</button> -->
+		<button type="text" id="sendVal" onclick="sendRequestValidation()" > Display Validation rules</button>
 		<button type="text" onclick="sendRequestOrgUnits()" >Display orgUnits</button>
 		<button type="text"  onclick="sendRequestDataElements()" >Display Data Elements</button><br/>
-
-		<pre><code id="responseOutput" ></code></pre>
+		</div>
+		<div id="load" class="show" >
+		<div class="loader" ></div>
+		</div>
+		<form>
+<!--         <div id="responseOut"></div>
+ -->	<pre><code id="responseOutput" ></code></pre>
+ 		</form>
 		</body>
 </html>
